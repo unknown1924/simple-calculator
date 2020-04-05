@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!--Import Google Icon Font-->
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <!--Import materialize.css-->
+    <link
+      type="text/css"
+      rel="stylesheet"
+      href="css/materialize.min.css"
+      media="screen,projection"
+    />
+
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Calc</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script>
+      function insert(num) {
+        document.form.textview.value = document.form.textview.value + num;
+      }
+      function equal() {
+        let exp = document.form.textview.value;
+        if (exp) {
+          document.form.textview.value = eval(exp);
+        }
+      }
+      function back() {
+        let exp = document.form.textview.value;
+        document.form.textview.value = exp.substring(0, exp.length - 1);
+      }
+      function clr() {
+        //document.getElementById('form').reset();
+        document.form.textview.value = "";
+      }
+    </script>
+    <style>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+        * {
+        margin: 0;
+        padding: 0;
+      }
+      .textview {
+        border-radius: 10px;
+        margin: 2px;
+        height: 40px;
+        width: 215px;
+        font-size: large;
+        font-weight: bold;
+      }
+      .button {
+        border-radius: 10px;
+        box-shadow: grey;
+        margin: 2px;
+        width: 50px;
+        height: 40px;
+        font-size: large;
+        font-weight: bold;
+      }
+      .main {
+        position: absolute;
+        background: linear-gradient(to right, purple, lightblue, lightgreen);
+        top: 50%;
+        left: 50%;
+        transform: translateX(-50%) translateY(-50%);
+        border-radius: 10px;
+      }
+      .bg {
+        height: 100%;
+        width: 100%;
+        background-color: rgb(255, 238, 0);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="bg"></div>
+    <div class="main">
+      <form name="form" id="form">
+        <input class="textview" name="textview" />
+      </form>
+      <table>
+        <tr>
+          <td>
+            <input class="button" type="button" value="C" onclick="clr()" />
+          </td>
+          <td>
+            <input class="button" type="button" value="<" onclick="back()" />
+          </td>
+          <td>
+            <input
+              class="button"
+              type="button"
+              value="/"
+              onclick="insert('/')"
+            />
+          </td>
+          <td>
+            <input
+              class="button"
+              type="button"
+              value="+"
+              onclick="insert('+')"
+            />
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <input class="button" type="button" value="9" onclick="insert(9)" />
+          </td>
+          <td>
+            <input class="button" type="button" value="8" onclick="insert(8)" />
+          </td>
+          <td>
+            <input class="button" type="button" value="7" onclick="insert(7)" />
+          </td>
+          <td>
+            <input
+              class="button"
+              type="button"
+              value="-"
+              onclick="insert('-')"
+            />
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <input class="button" type="button" value="6" onclick="insert(6)" />
+          </td>
+          <td>
+            <input class="button" type="button" value="5" onclick="insert(5)" />
+          </td>
+          <td>
+            <input class="button" type="button" value="4" onclick="insert(4)" />
+          </td>
+          <td>
+            <input
+              class="button"
+              type="button"
+              value="*"
+              onclick="insert('*')"
+            />
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <input class="button" type="button" value="3" onclick="insert(3)" />
+          </td>
+          <td>
+            <input class="button" type="button" value="2" onclick="insert(2)" />
+          </td>
+          <td>
+            <input class="button" type="button" value="1" onclick="insert(1)" />
+          </td>
+          <td rowspan="5">
+            <input
+              style="height: 85px; background-color: lightsalmon; border: none;"
+              class="button"
+              type="button"
+              value="="
+              onclick="equal()"
+            />
+          </td>
+        </tr>
+        <tr>
+          <td colspan="2">
+            <input
+              style="width: 105px;"
+              class="button"
+              type="button"
+              value="0"
+              onclick="insert(0)"
+            />
+          </td>
+
+          <td>
+            <input
+              class="button"
+              type="button"
+              value="."
+              onclick="insert('.')"
+            />
+          </td>
+        </tr>
+      </table>
+    </div>
+    <!--JavaScript at end of body for optimized loading-->
+    <script type="text/javascript" src="js/materialize.min.js"></script>
+  </body>
+</html>
